@@ -1,0 +1,27 @@
+.container.col-md-5.col-md-offset-1
+  .content
+    %h1 Yo Cuties
+    .text
+      %p
+        = "Give us your YO username & email"
+      %p
+        = "We'll send you the cutest shit ever when you YO us, yo."
+      %p
+        = "Cool?"
+
+    = form_for @user, path: create_user_path do |f|
+      = f.label "Yo Username"
+      %br
+      = f.text_field :yo_username
+      %br
+      %br
+      = f.label "Email"
+      %br
+      = f.text_field :email
+      %br
+      %br
+      = f.submit 'SIGN UP'
+  %footer
+    %a{href: "http://www.twitter.com/mackattaq", target: "_blank"}
+      = "Mack"
+      
