@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       user = User.create(email: email, yo_username: username)
     end
       user.send_yo
-    flash[:notice] = "You have successfully logged out."
+    flash[:notice] = "OK, we got some mad Cuties comin' your way!"
     redirect_to :root
   end
 
