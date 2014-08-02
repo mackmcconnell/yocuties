@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def create
     email = params[:user][:email]
-    username = params[:user][:yo_username]
+    username = params[:user][:yo_username].upcase
     user = User.find_by_email(email)
     unless user
       user = User.create(email: email, yo_username: username)
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def receive_yo
     username = params[:username]
-    user = User.find_by_username(username)
+    user = User.find_by_yo_username(username)
     if user
       user.send_yo
       user.send_cute_email

@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   resources :users
 
-  get 'users/receive_yo'
+  get '/receive_yo' => 'users#receive_yo'
 
 end
