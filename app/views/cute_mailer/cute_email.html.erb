@@ -796,9 +796,15 @@ body.outlook p {
                         <tr style='text-align:center;'>
                           <td style='text-align:center;'>
 
+                            <% colors_array = ["#FF0000", "#FF7F00", "#CCFFFF", "#00FF00", "#0000FF", "#4B0082", "#8F00FF"] %>
                             <% greetings_array = ["<3 LoL <3 lol <3 lol <3", "awwwwwwww", "don't mess with these cuties", "you've got some 'splaining to do, mister...", "...Who? Me? ;)", "¡¡¡CUTE ALERT!!!"] %>
-
-                            <h1 class='center' style='font-weight: 600; font-size: 35px;'><%= greetings_array.sample %></h1>
+                            <% greeting = greetings_array.sample.chars %>
+                            <% span_opening = "<span style='color:" %>
+                            <% span_closing = "</span>" %>
+                            <% greeting_html = [] %>
+                            <% greeting.each {|char| greeting_html << (span_opening + colors_array.sample + ";'>" + char + span_closing) } %>
+                            
+                            <h1 class='center' style='font-weight: 600; font-size: 35px;'><%= (greeting_html.join).html_safe %></h1>
                             <!-- <br>
                             <h2 class='center' style="font-style: italic; font-weight: 300;">C'est pas grave !</h2> -->
 
